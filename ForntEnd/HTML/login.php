@@ -17,7 +17,7 @@ if ($t_con) {
         session_create_id();
       } 
       else {
-      $err = 3;
+      $err = 1;
     }
   }
   $t_con->close();
@@ -35,6 +35,7 @@ if ($t_con) {
 </head>
 <body>
     <h1>Hello login page</h1>
+    <span>2nd pull</span>
     <div>
         <form action="login.php" method="post">
             <input type="t_id" name="id" placeholder="Enter unique Id">
