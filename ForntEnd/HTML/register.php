@@ -17,7 +17,7 @@ if ($t_con) {
       } else {
         $sql = "INSERT INTO `t_registered` (`unique_id`, `t_pass`, `t_name`, `t_email`, `t_dept`) 
         VALUES ('$uid', '$pass', '$name', '$email', '$dept')";
-        $d_sql="INSERT INTO `bca` (`t_name`, `unique_id`, `t_pass` ) VALUES ('$name', '$uid', '$pass')";
+        $d_sql="INSERT INTO `$dept` (`t_name`, `unique_id`, `t_pass` ) VALUES ('$name', '$uid', '$pass')";
         if (mysqli_query($t_con, $sql) && mysqli_query($d_con,$d_sql)) {
         header("location: login.php");
         } else {

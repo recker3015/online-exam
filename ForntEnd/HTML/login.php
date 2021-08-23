@@ -12,7 +12,8 @@ if ($t_con) {
     $unam = mysqli_num_rows($a);
     $aa=mysqli_fetch_assoc($a);
     if ($unam > 0) {
-      $_SESSION['username'] = $aa['t_name'];
+     // $_SESSION['username'] = $aa['t_name'];
+      $_SESSION['u_id'] = $aa['unique_id'];
         header("location:profile.php");
         session_create_id();
       } 
@@ -35,7 +36,6 @@ if ($t_con) {
 </head>
 <body>
     <h1>Hello login page</h1>
-    <span>2nd pull</span>
     <div>
         <form action="login.php" method="post">
             <input type="t_id" name="id" placeholder="Enter unique Id">
