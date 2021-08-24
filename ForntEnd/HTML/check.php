@@ -2,6 +2,7 @@
 session_start();
 require_once "dept_config.php";
 $uid=$_SESSION['u_id'];
+
 $q="SELECT * FROM `qs` WHERE `unique_id` = '$uid' ";
 $p = mysqli_query($d_con, $q);
 if ($p) {
@@ -18,7 +19,7 @@ if ($p) {
 </head>
 <body>
     <h1 style="text-align: center;">Check answer bitch</h1>
-    <h1 style="text-align: center;">Hello,<?php echo $uid; ?></h1>
+    <h1 style="text-align: center;">Hello,<?php echo $_SESSION['username']; ?></h1>
     <div class="product">
 
 <h3>Q.1-<?php echo $f['question']; ?></h3>

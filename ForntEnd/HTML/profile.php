@@ -15,8 +15,8 @@ require_once "config.php";
     <h1>Welcome</h1>
             <?php
             if ($name == 1) {
-            //echo $_SESSION['username'];
-            echo $_SESSION['u_id'];
+            echo $_SESSION['username'];
+           // echo $_SESSION['u_id'];
             echo '<br>
         <a href="logout.php">logout Here</a>';
         } else {

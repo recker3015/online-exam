@@ -12,7 +12,8 @@ if ($t_con) {
     $unam = mysqli_num_rows($a);
     $aa=mysqli_fetch_assoc($a);
     if ($unam > 0) {
-     // $_SESSION['username'] = $aa['t_name'];
+      $_SESSION['username'] = $aa['t_name'];
+      session_create_id();
       $_SESSION['u_id'] = $aa['unique_id'];
         header("location:profile.php");
         session_create_id();
