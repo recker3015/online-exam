@@ -1,8 +1,29 @@
 <?php
 session_start();
+require_once "dept_config.php";
+$uid=$_SESSION['u_id'];
+if(isset($_POST['e_name']))
+{
+$exmname=$_POST['e_name'];
+$sem=$_POST['sem'];
+$course=$_POST['course'];
+$fullmark=$_POST['f_mark'];
+$passmark=$_POST['p_mark'];
+$duration=$_POST['e_duration'];
 
-require_once "dept_config.php"
+$q="INSERT INTO `q_set` (`nos`, `unique_id`, `sem`, `course`, `e_name`, `f_mark`, `p_mark`, `e_duration`, `e_id`, `date`) VALUES 
+(NULL, '$uid', '$sem', '$course', '$exmname', '$fullmark', '$passmark', '$duration', '154', current_timestamp())";
 
+$qu=mysqli_query($d_con, $q);
+    if($qu)
+    {
+        echo "successful Q-Set Created";
+    }
+    else{
+        echo "error";
+    }
+}   
+    $d_con->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +34,7 @@ require_once "dept_config.php"
 <body>
     <h1 style="text-align: center;">Set Question paper bitch</h1>
     <br>
+    <?php echo $_SESSION['username']; ?>
     <div>
         <form action="set.php" method="POST">
         <input type="text" name="e_name" placeholder="Enter Exam Name">
@@ -33,7 +55,8 @@ require_once "dept_config.php"
             </select> 
             <input type="number" name="f_mark" placeholder="Enter Full Marks">
             <input type="number" name="p_mark" placeholder="Enter Pass Marks">
-            <input type="number" name="e_duration" placeholder="Total Exam Duration in minutes">            
+            <input type="number" name="e_duration" placeholder="Total Exam Duration in minutes">
+            <button type="submit">submit</button>   
         </form>
 
     </div>
