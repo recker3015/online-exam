@@ -43,6 +43,8 @@ if ($t_con) {
             <input type="password" name="pass" placeholder="Enter password">
             <button type="submit">login</button>
         </form>
+        <br>
+        <a href="register.php">Register here</a>
     </div>
 </body>
 </html>

@@ -7,8 +7,7 @@ $q="SELECT * FROM `qs` WHERE `unique_id` = '$uid' ";
 $p = mysqli_query($d_con, $q);
 if ($p) {
     $num = mysqli_num_rows($p) ;
-    if ($num) {
-        while ($f = mysqli_fetch_assoc($p)) {
+    if ($num) {      
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +19,13 @@ if ($p) {
 <body>
     <h1 style="text-align: center;">Check answer bitch</h1>
     <h1 style="text-align: center;">Hello,<?php echo $_SESSION['username']; ?></h1>
+    
     <div class="product">
-
+    <?php while ($f = mysqli_fetch_assoc($p)) {
+        ?>
 <h3>Q.1-<?php echo $f['question']; ?></h3>
-<br>
 <h3> Ans: <?php echo $f['ans']; ?></h3>
+<br>
 <?php
 }
 } else {
