@@ -12,13 +12,13 @@ $passmark=$_POST['p_mark'];
 $exm_id=$_POST['e_id'];
 $duration=$_POST['e_duration'];
 
-$q="INSERT INTO `q_set` (`nos`, `unique_id`, `sem`, `course`, `e_name`, `f_mark`, `p_mark`, `e_duration`, `e_id`, `date`) VALUES 
-(NULL, '$uid', '$sem', '$course', '$exmname', '$fullmark', '$passmark', '$duration', '$exm_id', current_timestamp())"; //testing for Exam id
+$q="INSERT INTO `q_set` (`nos`, `unique_id`, `sem`, `course`, `e_name`, `f_mark`, `p_mark`, `e_duration`, `e_id`) VALUES 
+(NULL, '$uid', '$sem', '$course', '$exmname', '$fullmark', '$passmark', '$duration', '$exm_id')"; //testing for Exam id
 
 $qu=mysqli_query($d_con, $q);
     if($qu)
     {
-        header("location: question.php");
+        header("location: make_qus.php");//making questions
         $_SESSION['exam_id']=$exm_id;
         session_create_id();
     }
@@ -50,7 +50,7 @@ $qu=mysqli_query($d_con, $q);
                 <option value="5">5th Sem</option>    
                 <option value="6">6ht Sem</option>    
             </select> 
-            <label for="crs">Which course</label>
+            <label for="crs">Which department</label>
             <select name="course" id="crs">   
                 <option value="BCA">BCA Honours</option>    
                 <option value="BCS">BCS Honours</option>    

@@ -17,7 +17,7 @@ if ($t_con) {
       } else {
         $sql = "INSERT INTO `t_registered` (`unique_id`, `t_pass`, `t_name`, `t_email`, `t_dept`) 
         VALUES ('$uid', '$pass', '$name', '$email', '$dept')";
-        $d_sql="INSERT INTO `$dept` (`t_name`, `unique_id`, `t_pass` ) VALUES ('$name', '$uid', '$pass')";
+        $d_sql="INSERT INTO `$dept` (`t_name`, `unique_id`, `t_pass`, `t_dept` ) VALUES ('$name', '$uid', '$pass', '$dept' )";
         if (mysqli_query($t_con, $sql) && mysqli_query($d_con,$d_sql)) {
         header("location: login.php");
         } else {
@@ -48,7 +48,7 @@ if ($t_con) {
             <input type="password" name="t_pass" placeholder="Create password">
             <label for="department">Choose your department</label>
             <select name="dept" id="department">
-                <option value="bca">BCA</option>
+                <option value="comscience">Computer Science</option>
                 <option value="phy">Phy</option>
                 <option value="chem">Chem</option>
             </select>
