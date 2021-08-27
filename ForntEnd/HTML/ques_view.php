@@ -4,7 +4,7 @@ session_start();
 
 require_once "config.php";
 
-$e_id = $_SESSION['exam_id'];
+$eid=$_GET['exmid'];
 
 $uid = $_SESSION['u_id'];
 
@@ -15,7 +15,7 @@ if (isset($_POST['sub'])) {
         $qs = $_POST[$i ."qs1"];
         
         $q = "INSERT INTO `qs` (`unique_id`, `question`, `e_id`) VALUES 
-    ('$uid', '$qs', '$e_id')";
+    ('$uid', '$qs', '$eid')";
 
         $que = mysqli_query($con, $q);
 

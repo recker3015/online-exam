@@ -4,6 +4,7 @@ require_once "config.php";
 $eid = $_GET['examid'];
 
 $q = "SELECT * FROM `qs` WHERE `e_id` = '$eid' ";
+
 $p = mysqli_query($con, $q);
 
 if ($p) {
@@ -24,11 +25,12 @@ if ($p) {
             <h1 style="text-align: center;">Hello,<?php echo $_SESSION['username']; ?></h1>
 
             <div class="product">
+            <h2><a style="color: red;" href="ques_view.php?exmid=<?php echo $eid;?>"> Add Question</a></h2>
                 <?php
                 $i=1;
                  while ($f = mysqli_fetch_assoc($p)) {
                 ?>
-                    <h3> Q.<?php echo $i;?>- <?php echo $f['question'];?> </h3>
+                    <h3> Q.<?php echo $i;?>- <?php echo $f['question'];?></h3>
                     <h3> Ans: <?php echo $f['ans']; ?></h3>
                     <br>
         <?php

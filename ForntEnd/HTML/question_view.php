@@ -20,7 +20,8 @@ if ($que) {
             <?php while ($f = mysqli_fetch_assoc($que)) {
                 $eid = $f['e_id']; ?>
 
-                <a href="set_view.php?examid=<?php echo $eid; ?> "> Exam id is: <?php echo $f['e_name']; ?> </a>
+                <a href="set_view.php?examid=<?php echo $eid; ?> "> Exam id is: <?php echo $f['e_name']; ?></a>
+                
 
                 <br>
             <?php
