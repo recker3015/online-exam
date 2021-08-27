@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "dept_config.php";
+require_once "config.php";
 $uid=$_SESSION['u_id'];
 if(isset($_POST['e_name']))
 {
@@ -15,7 +15,7 @@ $duration=$_POST['e_duration'];
 $q="INSERT INTO `q_set` (`nos`, `unique_id`, `sem`, `course`, `e_name`, `f_mark`, `p_mark`, `e_duration`, `e_id`) VALUES 
 (NULL, '$uid', '$sem', '$course', '$exmname', '$fullmark', '$passmark', '$duration', '$exm_id')"; //testing for Exam id
 
-$qu=mysqli_query($d_con, $q);
+$qu=mysqli_query($con, $q);
     if($qu)
     {
         header("location: make_qus.php");//making questions
@@ -25,8 +25,8 @@ $qu=mysqli_query($d_con, $q);
     else{
         echo "error";
     }
-}   
-    $d_con->close();
+}
+    $con->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">

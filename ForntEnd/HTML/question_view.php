@@ -1,10 +1,10 @@
-<?php
+<?php // this a list view of all the question paper or set made by the teacher,, click the link to view that papers all questions
 session_start();
-require_once "dept_config.php";
+require_once "config.php";
 $uid = $_SESSION['u_id'];
 
 $q = "SELECT * FROM `q_set` WHERE `unique_id` = '$uid' ";
-$que = mysqli_query($d_con, $q);
+$que = mysqli_query($con, $q);
 if ($que) {
     $num = mysqli_num_rows($que);
     if ($num) {

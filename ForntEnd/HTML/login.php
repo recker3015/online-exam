@@ -1,14 +1,14 @@
 <?php 
 session_start();
 require_once "config.php";
-require_once "dept_config.php";
+
 $err = 0;
-if ($t_con) {
+if ($con) {
   if (count($_POST) > 0) {
     $uno = $_POST['id'];
     $u = $_POST['pass'];
     $runo = "SELECT * FROM `t_registered` WHERE `unique_id` = '$uno' AND `t_pass` = '$u' ";
-    $a = mysqli_query($t_con, $runo);
+    $a = mysqli_query($con, $runo);
     $unam = mysqli_num_rows($a);
     $aa=mysqli_fetch_assoc($a);
     if ($unam > 0) {
@@ -22,8 +22,8 @@ if ($t_con) {
       $err = 1;
     }
   }
-  $t_con->close();
-  $d_con->close();
+  $con->close();
+  
 }
 
 ?>

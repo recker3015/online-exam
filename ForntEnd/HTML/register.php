@@ -1,7 +1,7 @@
 <?php
 require_once "config.php";
-require_once "dept_config.php";
-if ($t_con) {
+
+if ($con) {
     $flag = 0;
     if (count($_POST) > 0) {
       $name = $_POST['t_name'];
@@ -10,23 +10,23 @@ if ($t_con) {
       $pass = $_POST['t_pass'];
       $dept=$_POST['dept'];
       $runo = "SELECT * FROM `t_registered` WHERE `t_email` = '$email' ";
-      $ss = mysqli_query($t_con, $runo);
+      $ss = mysqli_query($con, $runo);
       $d = mysqli_num_rows($ss);
       if ($d > 0) {
         $flag = 1;
       } else {
         $sql = "INSERT INTO `t_registered` (`unique_id`, `t_pass`, `t_name`, `t_email`, `t_dept`) 
         VALUES ('$uid', '$pass', '$name', '$email', '$dept')";
-        $d_sql="INSERT INTO `$dept` (`t_name`, `unique_id`, `t_pass`, `t_dept` ) VALUES ('$name', '$uid', '$pass', '$dept' )";
-        if (mysqli_query($t_con, $sql) && mysqli_query($d_con,$d_sql)) {
+
+        if (mysqli_query($con, $sql)) {
         header("location: login.php");
         } else {
           echo "fail";
         }
       }
     }
-    $t_con->close();
-    $d_con->close();
+    $con->close();
+    
     
   }
 ?>

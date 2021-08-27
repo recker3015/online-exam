@@ -1,6 +1,7 @@
-<?php
+<?php                   //question Entering script or enter a single question at a time
+                        // enter multiple question at a time using loop                     
 session_start();
-require_once "dept_config.php";
+require_once "config.php";
 if(isset($_POST['qs']))
 {
     $e_id=$_SESSION['exam_id'];
@@ -8,7 +9,7 @@ if(isset($_POST['qs']))
     $qs=$_POST['qs'];
     $q="INSERT INTO `qs` (`unique_id`, `question`, `e_id`) VALUES 
     ('$uid', '$qs', '$e_id')";
-    $que=mysqli_query($d_con,$q);
+    $que=mysqli_query($con,$q);
     if($que)
     {
         echo "question enterd succesfull";
