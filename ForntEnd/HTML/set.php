@@ -20,7 +20,7 @@ $crss=strtoupper($course);
 $cse=strtoupper($sem);
 $d=mt_rand(1,999999);
 $i=str_pad($d, 6,0,STR_PAD_LEFT);
-$exm_id= "$strg"."$crss"."$cse"."$i"; //random id generate
+$exm_id= "$strg"."$crss"."$cse"."$i"; //random exam id generate
 
 $q="INSERT INTO `q_set` (`nos`, `unique_id`, `sem`, `course`, `e_name`, `f_mark`, `p_mark`, `e_duration`, `e_id`) VALUES 
 (NULL, '$uid', '$sem', '$course', '$exmname', '$fullmark', '$passmark', '$duration', '$exm_id')"; //testing for Exam id
