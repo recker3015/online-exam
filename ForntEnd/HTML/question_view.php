@@ -13,9 +13,6 @@ if ($que) {
         <html lang="en">
 
         <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>view  </title>
         </head>
         <body>
@@ -23,7 +20,7 @@ if ($que) {
             <?php while ($f = mysqli_fetch_assoc($que)) {
                 $eid = $f['e_id']; ?>
 
-                <a href="set_view.php?examid=<?php echo $eid; ?> "> Exam id is: <?php echo $eid; ?> </a>
+                <a href="set_view.php?examid=<?php echo $eid; ?> "> Exam id is: <?php echo $f['e_name']; ?> </a>
 
                 <br>
             <?php

@@ -6,9 +6,13 @@ if(isset($_POST['qs']))
 {
     $e_id=$_SESSION['exam_id'];
     $uid=$_SESSION['u_id'];
+   
+    
     $qs=$_POST['qs'];
+    
     $q="INSERT INTO `qs` (`unique_id`, `question`, `e_id`) VALUES 
     ('$uid', '$qs', '$e_id')";
+
     $que=mysqli_query($con,$q);
     if($que)
     {
@@ -18,6 +22,9 @@ if(isset($_POST['qs']))
     {
         echo "u dumb bitch";
     }
+ 
+
+    
 }
 ?>
 <!DOCTYPE html>
@@ -32,9 +39,13 @@ if(isset($_POST['qs']))
 <body>
     <h1 style="text-align: center;">Make Question bitch</h1>
     <h3><a style="text-align: center; color: red;" href="profile.php">GO TO PROFILE</a></h3>
+
     <form action="" method="POST">
+        
     <input type="text" name="qs" placeholder="Type ur question Here mother fucker">
+    
     <button type="submit">submit</button>    
     </form>
+     
 </body>
 </html>
