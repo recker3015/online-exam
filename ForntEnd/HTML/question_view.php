@@ -27,7 +27,7 @@ if ($que) {
             <?php
             }
         } else {
-            echo "Nothing found";
+            echo "Nothing ofr found";
         }
     }
     ?>

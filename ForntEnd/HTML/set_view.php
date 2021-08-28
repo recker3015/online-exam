@@ -3,14 +3,16 @@ session_start();
 require_once "config.php";
 $eid = $_GET['examid'];
 
+
+
 $q = "SELECT * FROM `qs` WHERE `e_id` = '$eid' ";
 $p = mysqli_query($con, $q);
+
 
 if ($p) {
     $num = mysqli_num_rows($p);
     if ($num) {
 ?>
-
         <!DOCTYPE html>
         <html lang="en">
 
@@ -28,12 +30,17 @@ if ($p) {
                 <?php
                 $i=1;
                  while ($f = mysqli_fetch_assoc($p)) {
+                     
                 ?>
                     <h3> Q.<?php echo $i;?>- <?php echo $f['question'];?></h3>
                     <button >update</button>
-                    <a href="update.php?num=<?php echo $f['nos']; ?>">update</a>
-                    
-                   <button id="delete">Delete</button>
+                    <a href="update.php?num=<?php echo $f['nos']; ?>">UPADTE</a>
+                    <a href="delete.php?delete=<?php echo $f['nos']; ?>">DELETE</a>
+                    <?php
+                    $_SESSION['ueid']=$eid;
+                    session_create_id();
+                    ?>
+                    <button id="delete" >Delete</button>
                     <h3> Ans: <?php echo $f['ans']; ?></h3>
                     <br>
         <?php
@@ -41,14 +48,14 @@ if ($p) {
             }
             } else {
                 echo "Nothing found";
+                ?>
+            <h2><a style="color: red;" href="ques_view.php?exmid=<?php echo $eid;?>"> Add Question</a></h2>
+            <?php
             }
         }
         ?>
         <script>
-            function update()
-            {
-              alert("hello world");  
-            }
+          
         </script>
         </body>
 
