@@ -2,9 +2,10 @@
 session_start();
 require_once "config.php";
 //udpate here
-$update=$_POST['uptxt'];
-
 $num= $_GET['num'];
+
+$update=$_POST['uptxt'];
+    
 $q="SELECT * FROM `qs` WHERE `nos` = '$num' ORDER BY `nos` ASC";
     $v=mysqli_query($con,$q);
     if($v)
