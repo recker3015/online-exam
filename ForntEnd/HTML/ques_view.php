@@ -1,30 +1,30 @@
-<?php                   //question Entering script or enter a single question at a time
+<?php            //question Entering script or enter a single question at a time
 // enter multiple question at a time using loop                     
 session_start();
 
 require_once "config.php";
 
-$eid=$_GET['exmid'];
+$eid = $_GET['exmid'];
 
 $uid = $_SESSION['u_id'];
 
 if (isset($_POST['sub'])) {
-    $n=$_POST['n'];
-    for ($i = 0; $i < $n; $i++) {
 
-        $qs = $_POST[$i ."qs1"];
-        
+    $n = $_POST['n'];
+
+    for ($i = 0; $i < $n; $i++)
+    {
+
+        $qs = $_POST[$i . "qs1"];
+
         $q = "INSERT INTO `qs` (`unique_id`, `question`, `e_id`) VALUES 
-    ('$uid', '$qs', '$eid')";
+        ('$uid', '$qs', '$eid')";
 
         $que = mysqli_query($con, $q);
-
-        if ($que) {
-            echo "question enterd succesfull";
-        } else {
-            echo "u dumb bitch";
-        }
     }
+    if($que) {
+        echo "question enterd succesfull";
+    } 
 }
 
 ?>
@@ -44,7 +44,7 @@ if (isset($_POST['sub'])) {
     <h3><a style="text-align: center; color: red;" href="profile.php">GO TO PROFILE</a></h3>
 
     <h3><a style="text-align: center; color: red;" href="question_view.php">View all questions SET</a></h3>
-
+    //to do enter no of questions
     <form action="" method="POST">
         <?php
         $n = 3;

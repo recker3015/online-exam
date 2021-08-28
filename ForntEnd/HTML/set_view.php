@@ -4,7 +4,6 @@ require_once "config.php";
 $eid = $_GET['examid'];
 
 $q = "SELECT * FROM `qs` WHERE `e_id` = '$eid' ";
-
 $p = mysqli_query($con, $q);
 
 if ($p) {
@@ -31,16 +30,26 @@ if ($p) {
                  while ($f = mysqli_fetch_assoc($p)) {
                 ?>
                     <h3> Q.<?php echo $i;?>- <?php echo $f['question'];?></h3>
+                    <button >update</button>
+                    <a href="update.php?num=<?php echo $f['nos']; ?>">update</a>
+                    
+                   <button id="delete">Delete</button>
                     <h3> Ans: <?php echo $f['ans']; ?></h3>
                     <br>
         <?php
-           $i++;    
+            $i++;    
             }
             } else {
                 echo "Nothing found";
             }
         }
         ?>
+        <script>
+            function update()
+            {
+              alert("hello world");  
+            }
+        </script>
         </body>
 
         </html>

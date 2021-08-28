@@ -1,5 +1,6 @@
-<?php                   //question Entering script or enter a single question at a time
-// enter multiple question at a time using loop                     
+<?php               
+// enter multiple question at a time using loop      
+//todo update questions              
 session_start();
 
 require_once "config.php";
@@ -9,13 +10,14 @@ $e_id = $_SESSION['exam_id'];
 $uid = $_SESSION['u_id'];
 
 if (isset($_POST['sub'])) {
+
     $n=$_POST['n'];
     for ($i = 0; $i < $n; $i++) {
 
         $qs = $_POST[$i ."qs1"];
         
         $q = "INSERT INTO `qs` (`unique_id`, `question`, `e_id`) VALUES 
-    ('$uid', '$qs', '$e_id')";
+        ('$uid', '$qs', '$e_id')";
 
         $que = mysqli_query($con, $q);
 
@@ -51,7 +53,10 @@ if (isset($_POST['sub'])) {
         for ($i = 0; $i < $n; $i++) {
         ?>
             <input type="text" name="<?php echo $i . 'qs1'; ?>" placeholder="Type ur question Here mother fucker">
+
             <input type="hidden" name="n" value="<?php echo $n; ?>">
+
+
         <?php
         }
         ?>
