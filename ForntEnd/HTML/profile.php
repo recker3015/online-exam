@@ -1,4 +1,6 @@
-<?php
+<?php //todo SEND NOTICE
+        // TODO publish EXAM to students
+        //TODO promote student system
 session_start();
 $pinflag = 0;
 $name = 0;
@@ -26,11 +28,9 @@ require_once "config.php";
         <a href="login.php">login Here</a>';
     } ?>
     <div>
-        <a href="set.php">Set Question Paper</a>
+        <a href="set_paper.php">Set Question Paper</a>
 
-        <a href="question_view.php">View all Questions</a>
-
-        
+        <a href="view_papers.php">View all Questions</a>
         
     </div>
 

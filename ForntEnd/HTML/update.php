@@ -19,8 +19,6 @@ $up="UPDATE `qs` SET `question` = '$update' WHERE `qs`.`nos` = '$num';";
 $qq=mysqli_query($con,$up);
 }
 
-
-
 ?>
         <!DOCTYPE html>
         <html lang="en">

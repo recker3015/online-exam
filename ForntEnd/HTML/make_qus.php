@@ -1,6 +1,5 @@
 <?php               
-// enter multiple question at a time using loop      
-//todo update questions              
+// NOT REQuried ANYMORE YES             
 session_start();
 
 require_once "config.php";
@@ -45,8 +44,8 @@ if (isset($_POST['sub'])) {
     <h1 style="text-align: center;">Make Question bitch</h1>
     <h3><a style="text-align: center; color: red;" href="profile.php">GO TO PROFILE</a></h3>
 
-    <h3><a style="text-align: center; color: red;" href="question_view.php">View all questions SET</a></h3>
-
+    <h3><a style="text-align: center; color: red;" href="view_papers.php">View all questions SET</a></h3>
+    
     <form action="" method="POST">
         <?php
         $n = 3;
@@ -55,8 +54,6 @@ if (isset($_POST['sub'])) {
             <input type="text" name="<?php echo $i . 'qs1'; ?>" placeholder="Type ur question Here mother fucker">
 
             <input type="hidden" name="n" value="<?php echo $n; ?>">
-
-
         <?php
         }
         ?>

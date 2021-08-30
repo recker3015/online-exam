@@ -1,11 +1,20 @@
-<?php          // examination details section, to create templet for the question,he we enter all the exam deatils, and after that we enter questions
+<?php  //examination details section, to create templet for the question,he we enter all the exam deatils, and after that we enter questions
 session_start();
 require_once "config.php";
+
 $uid = $_SESSION['u_id'];
 
 $t = "SELECT * FROM `t_registered` WHERE `unique_id` = '$uid' ";
 $qry = mysqli_query($con, $t);
 $dpt = mysqli_fetch_assoc($qry);
+
+$tp = $dpt['t_dept'];
+
+$type = "SELECT * FROM `dept` WHERE `t_dept` = '$tp'";
+
+$type_query = mysqli_query($con, $type);
+
+
 if (isset($_POST['e_name'])) {
     $exmname = $_POST['e_name'];
     $sem = $_POST['sem'];
@@ -25,7 +34,8 @@ if (isset($_POST['e_name'])) {
 
     $qu = mysqli_query($con, $q);
     if ($qu) {
-        header("location: make_qus.php"); //making questions
+        //header("location: make_qus.php"); 
+        header("location: make_question.php?exmid=" . urldecode($exm_id)); //making questions
         $_SESSION['exam_id'] = $exm_id;
         session_create_id();
     } else {
@@ -48,7 +58,7 @@ $con->close();
     <br>
     <?php echo $_SESSION['username']; ?>
     <div>
-        <form action="set.php" method="POST">
+        <form action="" method="POST">
             <input type="text" name="e_name" placeholder="Enter Exam Name">
             <label for="semister">Which Semister</label>
             <select name="sem" id="semister">
@@ -59,12 +69,20 @@ $con->close();
                 <option value="5th">5th Sem</option>
                 <option value="6th">6th Sem</option>
             </select>
-            <Label>Your Course is:<p style="text-transform:uppercase; color:red; margin:auto; border:.5px solid hotpink 50%;"><?php echo $dpt['t_dept']; ?></p></Label>
-            <label for="crs">Which department</label>
+            <Label>Your Department is:<p style="text-transform:uppercase; color:red; margin:auto; border:.5px solid hotpink 50%;">
+            <?php echo $tp; ?></p></Label>
+
+            <label for="crs">Type of Paper:</label>
             <select name="course" id="crs">
-                <option value="BCA">BCA Honours</option>
-                <option value="BCS">BCS Honours</option>
-                <option value="PASS">Computer Scinece Pass</option>
+                <?php
+                while ($ta = mysqli_fetch_assoc($type_query)) {
+                ?>
+                    <option value="<?php echo $ta['type']; ?>">
+                        <p><?php echo $ta['name']; ?></p>
+                    </option>
+                <?php
+                }
+                ?>
             </select>
             <input type="number" name="f_mark" placeholder="Enter Full Marks">
             <input type="number" name="p_mark" placeholder="Enter Pass Marks">

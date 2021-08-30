@@ -1,6 +1,5 @@
 <?php
 require_once "config.php";
-
 if ($con) {
     $flag = 0;
     if (count($_POST) > 0) {
@@ -26,11 +25,8 @@ if ($con) {
       }
     }
     $con->close();
-    
-    
   }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,10 +44,32 @@ if ($con) {
             <input type="password" name="t_pass" placeholder="Create password">
             <label for="department">Choose your department</label>
             <select name="dept" id="department">
-                <option value="comscience">Computer Science</option>
-                <option value="phy">Phy</option>
-                <option value="chem">Chem</option>
+                          <option value="alteng" >Alternative English</option>
+                          <option value="arab" >Arabic</option>
+                          <option value="bngc" >Bengali</option>
+                          <option value="bng" >Bengali Communication</option>
+                          <option value="bio" >Biology</option>
+                          <option value="botbio" >Botany &amp; Biotechnology</option>
+                          <option value="chem" >Chemistry</option>
+                          <option value="cmrc" >Commerce</option>
+                          <option value="compsca" >Computer Science &amp; Application</option>
+                          <option value="ecoenv" >Ecology &amp; Environmental Science</option>
+                          <option value="eco" >Economics</option>
+                          <option value="engc" >English</option>
+                          <option value="eng" >English Communication</option>
+                          <option value="geneng" >General English</option>
+                          <option value="geo" >Geology</option>
+                          <option value="hist" >History</option>
+                          <option value="math" >Mathematics</option>
+                          <option value="mil" >MIL</option>
+                          <option value="phil" >Philosophy</option>
+                          <option value="phy" >Physics</option>
+                          <option value="polsc" >Political Science</option>
+                          <option value="snsk" >Sanskrit</option>
+                          <option value="stat" >Statistics</option>
+                          <option value="zoo" >Zoology</option>
             </select>
+      
             <input type="email" name="t_email" placeholder="Enter email id">
             <button type="submit">submit</button>       
         </form>

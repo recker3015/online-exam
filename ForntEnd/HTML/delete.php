@@ -9,11 +9,11 @@ if(isset($_POST['sub']))
     $dd="DELETE FROM `qs` WHERE `qs`.`nos` = '$del' ";
     $del_query=mysqli_query($con,$dd);
 
-    header('Location:set_view.php?examid='.urlencode($eid));
+    header('Location:view_questions.php?examid='.urlencode($eid));
 }
 if(isset($_POST['no']))
 {
-    header('Location:set_view.php?examid='.urlencode($eid));  
+    header('Location:view_questions.php?examid='.urlencode($eid));  
 }
 ?>
 <!DOCTYPE html>
