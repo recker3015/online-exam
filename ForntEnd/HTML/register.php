@@ -1,5 +1,7 @@
 <?php
-require_once "config.php";
+
+include "../../BackEnd/config.php";
+
 if ($con) {
     $flag = 0;
     if (count($_POST) > 0) {

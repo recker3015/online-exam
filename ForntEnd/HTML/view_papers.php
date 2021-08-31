@@ -6,6 +6,7 @@ $uid = $_SESSION['u_id'];
 
 $q = "SELECT * FROM `q_set` WHERE `unique_id` = '$uid' ";
 $que = mysqli_query($con, $q);
+
 if ($que) {
     $num = mysqli_num_rows($que);
     if ($num) {

@@ -5,6 +5,13 @@
 session_start();
 
 require_once "config.php";
+/*-----------PREPAREING THE QUERY FOR FAST INSERTION---------------*/
+$q = "INSERT INTO `qs` (`unique_id`, `question`, `e_id`) VALUES 
+        (?,?,?)";
+
+$stmt= $con->prepare($q);
+
+$stmt->bind_param("sss", $uid, $qs,$eid );
 
 $eid = $_GET['exmid'];
 
@@ -18,12 +25,14 @@ if (isset($_POST['sub'])) {
 
         $qs = $_POST[$i . "qs1"];
 
-        $q = "INSERT INTO `qs` (`unique_id`, `question`, `e_id`) VALUES 
-        ('$uid', '$qs', '$eid')";
+        // $q = "INSERT INTO `qs` (`unique_id`, `question`, `e_id`) VALUES 
+        //('$uid', '$qs', '$eid')";
 
-        $que = mysqli_query($con, $q);
+        $stmt->execute();
+    
+        //$que = mysqli_query($con, $q);
     }
-    if ($que) {
+    if ($stmt) {
         echo "question enterd succesfull";
     }
 }
