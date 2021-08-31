@@ -1,5 +1,5 @@
-<?php //todo SEND NOTICE
-        // TODO publish EXAM to students
+<?php //Todo SEND NOTICE
+        //TODO publish EXAM to students
         //TODO promote student system
 session_start();
 $pinflag = 0;

@@ -70,7 +70,7 @@ $con->close();
                 <option value="6th">6th Sem</option>
             </select>
             <Label>Your Department is:<p style="text-transform:uppercase; color:red; margin:auto; border:.5px solid hotpink 50%;">
-            <?php echo $tp; ?></p></Label>
+                    <?php echo $tp; ?></p></Label>
 
             <label for="crs">Type of Paper:</label>
             <select name="course" id="crs">

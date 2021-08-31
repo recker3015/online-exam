@@ -1,4 +1,5 @@
-<?php // this a list view of all the question paper or set made by the teacher,, click the link to view that papers all questions
+<?php   // this a list view of all the question paper or set made by the teacher,, click the link to view that papers all questions
+        // TODO add Take Exam Feature
 session_start();
 require_once "config.php";
 $uid = $_SESSION['u_id'];
@@ -13,21 +14,20 @@ if ($que) {
         <html lang="en">
 
         <head>
-            <title>view  </title>
+            <title>view </title>
         </head>
+
         <body>
             <h1 style="text-align: center;">total questions</h1>
             <?php while ($f = mysqli_fetch_assoc($que)) {
                 $eid = $f['e_id']; ?>
-
                 <a href="view_questions.php?examid=<?php echo $eid; ?> "> Exam id is: <?php echo $f['e_name']; ?></a>
-                
 
                 <br>
-            <?php
+    <?php
             }
         } else {
-            echo "Nothing ofr found";
+            echo "Nothing found";
         }
     }
     ?>
