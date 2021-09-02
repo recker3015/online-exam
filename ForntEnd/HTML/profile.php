@@ -1,4 +1,4 @@
-<?php //Todo SEND NOTICE
+<?php   //Todo SEND NOTICE
         //TODO publish EXAM to students
         //TODO promote student system
 session_start();
@@ -35,9 +35,6 @@ require_once "config.php";
     </div>
 
 </head>
-
 <body>
-
 </body>
-
 </html>

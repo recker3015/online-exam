@@ -1,4 +1,5 @@
-<?php  //question Entering script
+<?php  
+//question Entering script
 // enter multiple question at a time using loop   
 //TODO specify no. of question to enter
 //MCQ type question making done

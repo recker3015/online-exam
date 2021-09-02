@@ -7,7 +7,6 @@ $uid = $_SESSION['u_id'];
 $eid = $_GET['exmid'];
 /*-----------PREPAREING THE QUERY FOR FAST INSERTION---------------*/
 
-
 $q = "INSERT INTO `qs` (`unique_id`, `question`, `e_id`, `oa`, `ob`, `oc`, `od`, `ca`) VALUES 
         (?,?,?,?,?,?,?,?)";
 

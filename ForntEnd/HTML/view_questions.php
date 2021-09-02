@@ -3,8 +3,6 @@ session_start();
 require_once "config.php";
 $eid = $_GET['examid'];
 
-
-
 $q = "SELECT * FROM `qs` WHERE `e_id` = '$eid' ";
 $p = mysqli_query($con, $q);
 
