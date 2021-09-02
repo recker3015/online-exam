@@ -23,7 +23,7 @@ if ($que) {
             <?php while ($f = mysqli_fetch_assoc($que)) {
                 $eid = $f['e_id']; ?>
                 <a href="view_questions.php?examid=<?php echo $eid; ?> "> Exam id is: <?php echo $f['e_name']; ?></a>
-
+                
                 <br>
     <?php
             }

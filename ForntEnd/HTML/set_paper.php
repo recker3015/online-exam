@@ -1,5 +1,5 @@
 <?php  //examination details section, to create templet for the question,he we enter all the exam deatils, and after that we enter questions
-        //TODO
+//TODO
 session_start();
 require_once "config.php";
 
@@ -31,12 +31,12 @@ if (isset($_POST['e_name'])) {
     $exm_id = "$strg" . "$crss" . "$cse" . "$i"; //random exam id generate
 
     $q = "INSERT INTO `q_set` (`nos`, `unique_id`, `sem`, `course`, `e_name`, `f_mark`, `p_mark`, `e_duration`, `e_id`) VALUES 
-(NULL, '$uid', '$sem', '$course', '$exmname', '$fullmark', '$passmark', '$duration', '$exm_id')"; //testing for Exam id
+    (NULL, '$uid', '$sem', '$course', '$exmname', '$fullmark', '$passmark', '$duration', '$exm_id')"; //testing for Exam id
 
     $qu = mysqli_query($con, $q);
     if ($qu) {
         //header("location: make_qus.php"); 
-        
+
         header("location: make_question.php?exmid=" . urldecode($exm_id)); //making questions
         $_SESSION['exam_id'] = $exm_id;
         session_create_id();
@@ -44,6 +44,7 @@ if (isset($_POST['e_name'])) {
         echo "error";
     }
 }
+
 $con->close();
 ?>
 <!DOCTYPE html>
