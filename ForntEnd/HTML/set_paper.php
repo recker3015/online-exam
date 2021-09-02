@@ -1,4 +1,5 @@
 <?php  //examination details section, to create templet for the question,he we enter all the exam deatils, and after that we enter questions
+        //TODO
 session_start();
 require_once "config.php";
 
@@ -35,6 +36,7 @@ if (isset($_POST['e_name'])) {
     $qu = mysqli_query($con, $q);
     if ($qu) {
         //header("location: make_qus.php"); 
+        
         header("location: make_question.php?exmid=" . urldecode($exm_id)); //making questions
         $_SESSION['exam_id'] = $exm_id;
         session_create_id();

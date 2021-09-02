@@ -8,7 +8,6 @@ $eid = $_GET['examid'];
 $q = "SELECT * FROM `qs` WHERE `e_id` = '$eid' ";
 $p = mysqli_query($con, $q);
 
-
 if ($p) {
     $num = mysqli_num_rows($p);
     if ($num) {
@@ -30,16 +29,31 @@ if ($p) {
                 <?php
                 $i = 1;
                 while ($f = mysqli_fetch_assoc($p)) {
-
                 ?>
-                    <h3> Q.<?php echo $i; ?>- <?php echo $f['question']; ?></h3>
+                    
+                    <?php if($f['ca']!=null)
+                    { ?>
+                        <h3> Q.<?php echo $i; ?>- <?php echo $f['question']; ?></h3>
+                        <label> <?php echo "A. ".$f['oa']; ?></label><br>
+                        <label> <?php echo "B. ".$f['ob']; ?></label><br>
+                        <label> <?php echo "C. ".$f['oc']; ?></label><br>
+                        <label> <?php echo "D. ".$f['od']; ?></label><br>
+                        <label> <?php echo "Correct Answer: ".$f['ca']; ?></label><br>
+                    <?php }else{
+                        ?>
+                        <h3> Q.<?php echo $i; ?>- <?php echo $f['question']; ?></h3>
+                        <?php
+                    } 
+                    
+                    ?>
+
                     <button type="submit" onclick="location.href='update.php?num=<?php echo $f['nos']; ?>'"> UPDATE</button>
                     <?php
                     $_SESSION['ueid'] = $eid;
                     session_create_id();
                     ?>
                     <button type="submit" onclick="location.href='delete.php?delete=<?php echo $f['nos']; ?>'">DELETE</button>
-                    <h3> Ans: <?php echo $f['ans']; ?></h3>
+                    
                     <br>
                 <?php
                     $i++;
@@ -56,5 +70,4 @@ if ($p) {
 
         </script>
         </body>
-
         </html>
