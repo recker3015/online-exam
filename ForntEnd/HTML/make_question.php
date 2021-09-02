@@ -5,7 +5,6 @@
 
 <?php          
 session_start();
-
 require_once "config.php";
 /*-----------PREPAREING THE QUERY FOR FAST INSERTION---------------*/
 $q = "INSERT INTO `qs` (`unique_id`, `question`, `e_id`) VALUES 
@@ -47,7 +46,7 @@ if (isset($_POST['sub'])) {
 </head>
 
 <body>
-    <h1 style="text-align: center;">Make Question bitch</h1>
+    <h1 style="text-align: center;">Make Questions</h1>
     <h3><a style="text-align: center; color: red;" href="profile.php">GO TO PROFILE</a></h3>
 
     <h3><a style="text-align: center; color: red;" href="mcq_question.php?exmid=<?php echo $eid; ?>">ADD MCQ Question</a></h3> 

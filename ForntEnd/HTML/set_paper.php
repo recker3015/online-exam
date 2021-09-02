@@ -56,7 +56,7 @@ $con->close();
 </head>
 
 <body>
-    <h1 style="text-align: center;">Set Question paper bitch</h1>
+    <h1 style="text-align: center;">Set Question paper </h1>
     <br>
     <?php echo $_SESSION['username']; ?>
     <div>
