@@ -25,7 +25,7 @@ if(isset($_POST['no']))
     <title>Document</title>
 </head>
 <body>
-    <H1>deLETE QUESTION</H1>
+    <H1>DELETE QUESTION</H1>
     <P>ARE U SURE TO DELETE</P>
     <form action="" method="post">
         <button type="submit" name="sub"> YES </button>

@@ -52,13 +52,11 @@ if (isset($_POST['sub'])) {
     <h3><a style="text-align: center; color: red;" href="mcq_question.php?exmid=<?php echo $eid; ?>">ADD MCQ Question</a></h3> 
 
     <h3><a style="text-align: center; color: red;" href="view_papers.php">View all questions SET</a></h3>
-    Enter No. of questions:
-        <input type="number" id="tnum" name="tnum" placeholder="enter total number of questions" >
-        <button type="submit" id="sub" >GO</button>
-        
+      
+
         <form action="" method="POST">
         <?php
-        $n= 2;
+        $n= 2; //total number questions to insert
         for ($i = 0; $i < $n; $i++) {
         ?>
             <input type="text" name="<?php echo $i . 'qs1'; ?>" placeholder="Type ur question Here mother fucker">
